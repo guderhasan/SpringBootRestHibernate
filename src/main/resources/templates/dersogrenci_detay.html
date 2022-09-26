@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{site.title}"></title>
+<link href="/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-2">
+				<div th:replace="fragment/menu.html :: menu"></div>
+			</div>
+			<div class="col-10">
+				<div class="card shadow">
+					<div class="card-body">
+						<table class="table table-striped table-bordered">
+					<thead class="table-dark">
+						<tr>
+						<th scope="col" class="col-auto" th:text="#{dersOgrenci.id}"></th>
+						<th scope="col" class="col-auto" th:text="#{dersOgrenci.ders.konu.isim}"></th>
+		          	<th scope="col" class="col-auto" th:text="#{dersOgrenci.ders.ogretmen.isim}"></th>
+							
+							<th scope="col" class="col-auto" th:text="#{dersOgrenci.ogrenci.isim}"></th>
+							<th scope="col" class="col-auto" th:text="#{dersOgrenci.devamsizlik}"></th>
+							<th scope="col" class="col-auto" th:text="#{dersOgrenci.note}"></th>
+							
+						
+					
+						</thead>
+					</table>
+						<table class="table table-striped table-bordered">
+					
+						<tr>
+						<th><label class="form-label" th:text="${param.id}"></label></th>
+							
+								<th><label class="form-label" th:text="${dersogrenci.ders.konu.NAME}"></label> </th>
+							<th><label class="form-label" th:text="${dersogrenci.ders.ogretmen.NAME}"></label> </th>
+				         <th><label class="form-label" th:text="${dersogrenci.ogrenci.NAME}"></label> </th>
+								<th><label class="form-label" th:text="${dersogrenci.DEVAMSIZLIK}"></label> </th>
+				         <th><label class="form-label" th:text="${dersogrenci.NOTE}"></label> </th>
+							
+						
+					      </tr>
+					
+					
+					
+					
+						
+					</table>
+					
+					
+					
+					
+					
+						<button class="btn btn-danger" onclick="window.history.back();"
+							th:text="#{site.goback}"></button>
+					
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="/js/bootstrap.bundle.js"></script>
+</html>

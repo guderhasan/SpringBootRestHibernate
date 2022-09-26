@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{site.title}"></title>
+<link href="/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-2">
+				<div th:replace="fragment/menu.html :: menu"></div>
+			</div>
+			<div class="col-10">
+				<table class="table table-striped table-bordered">
+					<thead class="table-dark">
+						<tr>
+							<th scope="col" class="col-auto" th:text="#{ogrenci.id}"></th>
+							<th scope="col" class="col-auto" th:text="#{ogrenci.isim}"></th>
+							<th scope="col" class="col-auto" th:text="#{ogrenci.number}"></th>
+							<th scope="col" class="col-auto" th:text="#{ogrenci.year}"></th>
+							<th scope="col" class="col-auto" th:text="#{ogrenci.guncelle}"></th>
+							<th sec:authorize="isAuthenticated() AND hasRole('ADMIN')"
+								scope="col" class="col-auto" th:text="#{ogrenci.sil}"></th>
+							<th scope="col" class="col-auto" th:text="#{ogrenci.bilgiler}"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="ogrenci : ${liste}">
+							<td class="col-auto"><label th:text="${ogrenci.ID}"></label>
+							</td>
+							<td class="col-auto"><label th:text="${ogrenci.NAME}"></label></td>
+							<td class="col-auto"><label th:text="${ogrenci.OGR_NUMBER}"></label></td>
+							<td class="col-auto"><label th:text="${ogrenci.YEAR}"></label></td>
+							<td class="col-auto"><a th:text="#{ogrenci.guncelle}"
+								class="btn btn-outline-success"
+								th:href="'/ogrenci/guncelle?id=' + ${ogrenci.ID}"></a></td>
+							<td class="col-auto"
+								sec:authorize="isAuthenticated() AND hasRole('ADMIN')">
+								<form action="/ogrenci/sil" method="post">
+									<input id="OGR_ID_ID" type="hidden" name="OGR_ID"
+										th:value="${ogrenci.ID}"> <input type="submit"
+										th:value="#{ogrenci.sil}" class="btn btn-outline-danger">
+								</form>
+							</td>
+							<td class="col-auto"><a th:text="#{ogrenci.bilgiler}"
+								class="btn btn-outline-primary"
+								th:href="'/ogrenci/detay?id=' + ${ogrenci.ID}"></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="/js/bootstrap.bundle.js"></script>
+</html>

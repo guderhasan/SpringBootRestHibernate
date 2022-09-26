@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{site.title}"></title>
+<link href="/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-2">
+				<div th:replace="fragment/menu.html :: menu"></div>
+			</div>
+			<div class="col-10">
+				<div class="card shadow">
+					<div class="card-body">
+						<form action="ekle" method="post" th:object="${konu}">
+							<div>
+								<input class="form-control" type="text" id="konuName"
+									th:field="*{NAME}" required="required" autocomplete="off"
+									placeholder="Konu ismi" maxlength="100">
+							</div>
+							<div>
+								<input type="submit" th:value="#{konu.ekle}"
+									class="btn btn-primary mt-3">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="/js/bootstrap.bundle.js"></script>
+</html>

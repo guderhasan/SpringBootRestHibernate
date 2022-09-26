@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{site.title}"></title>
+<link href="/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-2">
+				<div th:replace="fragment/menu.html :: menu"></div>
+			</div>
+			<div class="col-10">
+				<div class="card shadow">
+					<div class="card-body">
+						<form action="guncelle" method="post" th:object="${ogretmen}">
+							<div>
+								<input class="form-control" type="text" id="ogretmenName"
+									th:field="*{NAME}" required="required" autocomplete="off"
+									placeholder="Öğretmen ismi" maxlength="100">
+							</div>
+							<div>
+								<label>Gıcık mı?</label> <input
+									class="form-control form-check-input" type="checkbox"
+									th:field="*{IS_GICIK}">
+							</div>
+							<div>
+								<input type="hidden" th:field="*{ID}">
+								<input
+									type="submit" th:value="#{ogretmen.guncelle}"
+									class="btn btn-primary mt-3">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="/js/bootstrap.bundle.js"></script>
+</html>

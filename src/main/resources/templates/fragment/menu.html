@@ -1,0 +1,20 @@
+<div xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" th:fragment="menu"
+th:with="url=${#httpServletRequest.requestURI}">
+	<!-- <h5 class="page-link" sec:authorize="isAuthenticated()" th:text="${#authentication.getPrincipal().getUsername()}"></h5> -->
+	<a href="?lang=en" th:if = "${#locale.language == 'tr'}" class="page-link" th:text="#{site.english}"></a>
+	<a href="?lang=tr" th:if = "${#locale.language == 'en'}" class="page-link" th:text="#{site.turkish}"></a>
+	<a href="/ogretmen" th:class="${url} == '/ogretmen' ? 'page-link bg-info' : 'page-link'" th:text="#{menu.teacher}"></a>
+	<a href="/ogretmen/ekle" sec:authorize="isAuthenticated() AND hasRole('ADMIN')" class="page-link ms-4" th:text="#{menu.save}"></a>
+	<a href="/ogrenci" class="page-link" th:text="#{menu.student}"></a>
+	<a href="/ogrenci/ekle" sec:authorize="isAuthenticated()" class="page-link ms-4" th:text="#{menu.save}"></a>
+	<a href="/konu" th:class="${url} == '/konu' ? 'page-link bg-info' : 'page-link'" th:text="#{menu.subject}"></a>
+	<a href="/konu/ekle" sec:authorize="isAuthenticated()" class="page-link ms-4" th:text="#{menu.save}"></a>
+	<a href="/ders" class="page-link" th:text="#{menu.lesson}"></a>
+	<a href="/ders/ekle" sec:authorize="isAuthenticated()" class="page-link ms-4" th:text="#{menu.save}"></a>
+	<a href="/dersogrenci" class="page-link" th:text="#{menu.lesson-student}"></a>
+	<a href="/dersogrenci/ekle" sec:authorize="isAuthenticated()" class="page-link ms-4" th:text="#{menu.save}"></a>
+	<a href="/derskayit" class="page-link" th:text="#{menu.registeration}"></a>
+	<a href="/derskayit/ekle" sec:authorize="isAuthenticated()" class="page-link ms-4" th:text="#{menu.save}"></a>
+	<a href="/login" sec:authorize="!isAuthenticated()" class="page-link" th:text="#{site.login}"></a>
+	<a href="/logout" sec:authorize="isAuthenticated()" class="page-link" th:text="#{site.logout}"></a>
+</div>
