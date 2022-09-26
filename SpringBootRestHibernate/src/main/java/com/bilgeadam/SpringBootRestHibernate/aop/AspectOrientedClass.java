@@ -12,6 +12,7 @@ import org.aspectj.lang.annotation.Pointcut;
  cross cutting concern
 public class AspectOrientedClass
 {
+	//github için örnek
 	 @Pointcut(value = "execution(public * *(..))")
 //
 //	 all implementations of interface
