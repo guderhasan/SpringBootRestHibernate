@@ -12,16 +12,16 @@ import org.aspectj.lang.annotation.Pointcut;
  cross cutting concern
 public class AspectOrientedClass
 {
-	 @Pointcut(value = "execution(public * *(..))")
+	// @Pointcut(value = "execution(public * *(..))")
 //
 //	 all implementations of interface
 //	 within(JPARepositoryImpl+)
 
-	@PostConstruct
-	public void asd()
-	{
-		System.err.println("Aspect sınıfı new yapıldı");
-	}
+	//@PostConstruct
+	//public void asd()
+	//{
+	//	System.err.println("Aspect sınıfı new yapıldı");
+	//}
 
 	// case sensitive
 	@Before(value = "execution(* com.bilgeadam.SpringBootRestHibernate.controller.OgrenciController.*get*(..))")
