@@ -7,21 +7,21 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
-// @Aspect
-// @Component
-// cross cutting concern
+ @Aspect
+ @Component
+ cross cutting concern
 public class AspectOrientedClass
 {
-	// @Pointcut(value = "execution(public * *(..))")
+	 @Pointcut(value = "execution(public * *(..))")
+//
+//	 all implementations of interface
+//	 within(JPARepositoryImpl+)
 
-	// all implementations of interface
-	// within(JPARepositoryImpl+)
-
-//	@PostConstruct
-//	public void asd()
-//	{
-//		System.err.println("Aspect sınıfı new yapıldı");
-//	}
+	@PostConstruct
+	public void asd()
+	{
+		System.err.println("Aspect sınıfı new yapıldı");
+	}
 
 	// case sensitive
 	@Before(value = "execution(* com.bilgeadam.SpringBootRestHibernate.controller.OgrenciController.*get*(..))")
