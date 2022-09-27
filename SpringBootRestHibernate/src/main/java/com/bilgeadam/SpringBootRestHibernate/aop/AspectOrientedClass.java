@@ -29,21 +29,21 @@ public class AspectOrientedClass
 //
 //	 all implementations of interface
 //	 within(JPARepositoryImpl+)
-
-	@PostConstruct
-	public void asd()
-	{
-		System.err.println("Aspect sınıfı new yapıldı");
-	}
-
-	// case sensitive
-	@Before(value = "execution(* com.bilgeadam.SpringBootRestHibernate.controller.OgrenciController.*get*(..))")
-	public void icindeGetGecenler()
-	{
-		System.err.println("Metod adı içinde get geçiyor");
-	}
-
-	@Before(value = "within(com.bilgeadam.SpringBootRestHibernate.controller.*)")
+//
+//	@PostConstruct
+//	public void asd()
+//	{
+//		System.err.println("Aspect sınıfı new yapıldı");
+//	}
+//
+//	// case sensitive
+//	@Before(value = "execution(* com.bilgeadam.SpringBootRestHibernate.controller.OgrenciController.*get*(..))")
+//	public void icindeGetGecenler()
+//	{
+//		System.err.println("Metod adı içinde get geçiyor");
+//	}
+//
+//	@Before(value = "within(com.bilgeadam.SpringBootRestHibernate.controller.*)")
 	private void allMethodsInsideControllerPackageBefore()
 	{
 		System.err.println("Before all methods of all classes of com.bilgeadam.SpringBootRestHibernate.controller package");
