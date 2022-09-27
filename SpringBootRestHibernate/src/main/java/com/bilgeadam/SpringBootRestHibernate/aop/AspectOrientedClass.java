@@ -81,8 +81,8 @@ public class AspectOrientedClass
 	// kesişim noktasına gelmeden önce
 	@Before(value = "ogretmenControllerCalisti()")
 	public void beforeOgretmenControllerCalisti(JoinPoint jp)
-	{
-		System.err.println("Öğretmen controller 'dan bir metod çalışacak " + jp.getSignature().getName());
+//	{
+//		System.err.println("Öğretmen controller 'dan bir metod çalışacak " + jp.getSignature().getName());
 	}
 
 	// kesişim noktasından sonra
